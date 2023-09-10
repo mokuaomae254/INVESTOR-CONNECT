@@ -1,0 +1,7 @@
+{
+    "builds": [{ "src": "your-source-directory", "use": "@vercel/node" }],
+    "env": {
+      "STREAMLIT_PATH": "/path/to/streamlit"
+    }
+  }
+  
