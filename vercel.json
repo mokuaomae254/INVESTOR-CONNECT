@@ -4,4 +4,12 @@
       "STREAMLIT_PATH": "/path/to/streamlit"
     }
   }
-  
+
+
+{
+    "routes": [
+      { "src": "/api/.*", "dest": "/api/index.js" },
+      { "src": "/(.*)", "dest": "/index.html" }
+    ]
+  }
+    
