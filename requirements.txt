@@ -71,7 +71,7 @@ mysqlclient==2.1.1
 nest-asyncio==1.5.5
 nltk==3.8.1
 numba==0.56.2
-numpy==1.24.0
+numpy
 oauthlib==3.2.2
 packaging==21.3
 pandas==1.4.4
