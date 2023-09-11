@@ -119,7 +119,7 @@ rfc3986==2.0.0
 rich==12.5.1
 schedule==1.1.0
 scikit-learn
-scipy==1.9.1
+scipy
 semver==2.13.0
 SimpleWebSocketServer==0.1.1
 six==1.16.0
