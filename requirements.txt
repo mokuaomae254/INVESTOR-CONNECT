@@ -130,7 +130,6 @@ statsmodels==0.13.5
 streamlit==1.20.0
 streamlit-authenticator==0.2.1
 ta==0.10.2
-TA-Lib @ file:///C:/Users/MOKUA/TA_Lib-0.4.24-cp310-cp310-win_amd64.whl
 tenacity==8.0.1
 textblob==0.17.1
 threadpoolctl==3.1.0
