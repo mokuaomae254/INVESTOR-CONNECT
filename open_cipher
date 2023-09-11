@@ -134,6 +134,7 @@ def market_report():
 def macro_analysis():
     
 	import streamlit as st
+	matplotlib.use('agg')
 	import matplotlib.pyplot as plt
 		#time.sleep(10)
 	from PIL import Image
@@ -189,6 +190,7 @@ def media_socials():
 def investor_connect2():
 		import streamlit as st
 		import matplotlib.pyplot as plt
+		matplotlib.use('agg')
 		from PIL import Image
 
 		st.header("Investor Connect")
@@ -215,6 +217,7 @@ def investor_connect():
 def investor_connect1():
 		import streamlit as st
 		import matplotlib.pyplot as plt
+		matplotlib.use('agg')
 		from PIL import Image
 
 		st.header("Investor Connect")
@@ -232,6 +235,7 @@ def investor_connect1():
 def crypto_portfolio():
         import streamlit as st
         import matplotlib.pyplot as plt
+        matplotlib.use('agg')
         age= st.number_input("enter your age:") 
         if age>=18  and age<=200 :
             #st.header("Portfolio Design and Risk Management")
@@ -312,6 +316,7 @@ def crypto_portfolio():
 def crypto_portfolio1():
 	import streamlit as st
 	import matplotlib.pyplot as plt
+	matplotlib.use('agg')
 
 	#st.header("Portfolio Design and Risk Management")
 	st.subheader("Crypto portfolio")
@@ -393,6 +398,7 @@ def dca():
 	import streamlit as st
 	import pandas as pd
 	import matplotlib.pyplot as plt
+	matplotlib.use('agg')
 	import ta
 	def dca_strat():
 		import streamlit as st
@@ -490,6 +496,7 @@ def topcryptos2():
     import time
     import matplotlib
     #import streamlit as st
+    matplotlib.use('agg')
     import matplotlib.pyplot as plt
     matplotlib.use('TkAgg')
     st.header("Top 100 Cryptocurrencies")
@@ -504,6 +511,7 @@ def topcryptos():
     import time
     import matplotlib
     #import streamlit as st
+    matplotlib.use('agg')
     import matplotlib.pyplot as plt
     matplotlib.use('TkAgg')
     st.header("Top 100 Cryptocurrencies By Market Capitalization")
@@ -539,6 +547,7 @@ def risk_environment():
 	import streamlit as st
 	import pandas as pd
 	import matplotlib.pyplot as plt
+	matplotlib.use('agg')
 	import ta
 
 	df = pd.read_csv("BCHAIN-MKPRU.csv")[["Date","Value"]]
@@ -623,6 +632,7 @@ def altcoinseason():
 	import pandas as pd
 	import streamlit as st
 	import matplotlib.pyplot as plt
+	matplotlib.use('agg')
 
 	st.title("Altcoin Season Indicator")
 
@@ -701,6 +711,7 @@ def crypto_quantitative_analysis():
 	import time
 	import matplotlib
 	#import streamlit as st
+	matplotlib.use('agg')
 	import matplotlib.pyplot as plt
 	matplotlib.use('TkAgg')
 
