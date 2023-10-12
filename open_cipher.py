@@ -454,7 +454,7 @@ def topcryptos2():
     import matplotlib
     #import streamlit as st
     import matplotlib.pyplot as plt
-    matplotlib.use('TkAgg')
+    matplotlib.use('Agg')
     st.header("Top 100 Cryptocurrencies")
      #dataframe = dataframe.drop(columns=["ATH","% ATH"], axis=1)
 
@@ -468,7 +468,7 @@ def topcryptos():
     import matplotlib
     #import streamlit as st
     import matplotlib.pyplot as plt
-    matplotlib.use('TkAgg')
+    matplotlib.use('Agg')
     st.header("Top 100 Cryptocurrencies By Market Capitalization")
      #dataframe = dataframe.drop(columns=["ATH","% ATH"], axis=1)
 
@@ -658,7 +658,7 @@ def crypto_quantitative_analysis():
 	import matplotlib
 	#import streamlit as st
 	import matplotlib.pyplot as plt
-	matplotlib.use('TkAgg')
+	matplotlib.use('Agg')
 
 
 	#st.set_page_config(layout="wide")
@@ -670,8 +670,8 @@ def crypto_quantitative_analysis():
 
 	with tab2:
 		
-		#topcryptos()
-		scrapping()
+		topcryptos()
+		#scrapping()
 	
 	
 
@@ -702,7 +702,7 @@ def crypto_quantitative_analysis():
 		st.header("Sentiment Analysis")
 		import pandas as pd
 		import matplotlib.pyplot as plt
-		matplotlib.use('TkAgg')
+		matplotlib.use('Agg')
 		
 			
 			#time.sleep(10)
@@ -946,8 +946,8 @@ def main():
 	if choice == "Home":
 		#st.subheader("Home")
 		#st.write("Welcome to our platform!")
-		#topcryptos()
-		scrapping()
+		topcryptos()
+		#scrapping()
 	elif choice == "Login":
 		#st.subheader("Login Section")
 
@@ -1059,4 +1059,4 @@ if __name__ == '__main__':
 #streamlit run open_cipher.py
 #pip uninstall matplotlib
 #pip install C:\Users\MOKUA\Downloads\TA_Lib-0.4.0-cp39-cp39-win_amd64.whl
-#git remote add origin https://github.com/mokuaomae254/OPEN-CIPHER-PROJECT1.git
+#git remote add origin https://github.com/mokuaomae254/OPEN-CIPHER-PROJECT1.
