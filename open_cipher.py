@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd 
-#import matplotlib
-import matplotlib.pyplot as plt
-
 st.set_page_config(layout="wide")
 def market_report():
 		import pandas as pd
@@ -13,7 +10,7 @@ def market_report():
 		from io import BytesIO
 		from matplotlib.backends.backend_pdf import FigureCanvasPdf as FigureCanvas
 
-		#from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+		#from matplotlib.backends.backend_Agg import FigureCanvasAgg as FigureCanvas
 		from matplotlib.figure import Figure
 
 		#st.header("Top 100 Cryptocurrencies By Market Capitalization")
@@ -38,7 +35,7 @@ def market_report():
 					
 					liquidity_risk.append("limited long term potential")
 				elif (dataframe["24H Vol"][index]) > (dataframe["Market Cap"][index] * 0.5):
-					liquidity_risk.append("stay off")
+					liquidity_risk.append("stay off/sell off")
 				
 		dataframe['liquidity_risk'] = liquidity_risk
 		dataframe.loc[dataframe['Name'].isin(['Tether USDT','USD Coin USDC','Binance USD BUSD','Dai DAI','Paxos Standard USDP','TrueUSD TUSD','USDD USDD','Neutrino USD USDN','Gemini Dollar GUSD',"cDAI. cdai","cUSDC. cusdc"]), 'liquidity_risk'] = 'stablecoin'
@@ -149,6 +146,46 @@ def macro_analysis():
 	st.image(image3, caption='EMOTIONAL ROLLERCOASTER.2')
 
 	#streamlit run sentiment.py
+def media_socials():
+	import streamlit as st
+
+	# Set page configuration
+	#st.set_page_config(page_title="Social Media Links", page_icon=":earth_americas:")
+	st.write("Feel free reachout with the links below")
+	SOCIAL_MEDIA = {
+		"YouTube": "https://youtube.com",
+		"LinkedIn": "https://linkedin.com",
+		"GitHub": "https://github.com",
+		"Twitter": "https://twitter.com",
+	}
+
+	# Add favicons to respective platform
+	FAVICON = {
+		"YouTube": "https://www.youtube.com/s/desktop/0356b1aa/img/favicon_32.png",
+		"LinkedIn": "https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97",
+		"GitHub": "https://github.githubassets.com/favicons/favicon-dark.svg",
+		"Twitter": "https://abs.twimg.com/favicons/twitter.ico",
+	}
+
+	# Display icons and links horizontally
+	col1, col2, col3, col4 = st.columns(4)
+	for platform, link in SOCIAL_MEDIA.items():
+		favicon = FAVICON.get(platform)
+		if favicon:
+			col = None
+			if platform == "YouTube":
+				col = col1
+			elif platform == "LinkedIn":
+				col = col2
+			elif platform == "GitHub":
+				col = col3
+			elif platform == "Twitter":
+				col = col4
+			with col:
+				st.image(favicon, width=30)
+				st.write(f"[{platform}]({link})")
+
+	#streamlit run media_social.py
 def investor_connect2():
 		import streamlit as st
 		import matplotlib.pyplot as plt
@@ -433,7 +470,7 @@ def dca():
 		st.write("RSI is above 80, time to sell/DCA out")
 		dca_strat()
 		
-	elif df["rsi"].iloc[-1] < 20:
+	elif df["rsi"].iloc[-1] < 25:
 		# Buy/DCA in
 		st.write("RSI is below 20, time to buy/DCA in")
 		dca_strat()
@@ -491,7 +528,7 @@ def topcryptos():
                 
                 liquidity_risk.append("limited long term potential")
             elif (dataframe["24H Vol"][index]) > (dataframe["Market Cap"][index] * 0.5):
-                liquidity_risk.append("stay off")
+                liquidity_risk.append("stay off/sell off")
             
     dataframe['liquidity_risk'] = liquidity_risk
     dataframe.loc[dataframe['Name'].isin(['Tether USDT','USD Coin USDC','Binance USD BUSD','Dai DAI','Paxos Standard USDP','TrueUSD TUSD','USDD USDD','Neutrino USD USDN','Gemini Dollar GUSD',"cDAI. cdai","cUSDC. cusdc"]), 'liquidity_risk'] = 'stablecoin'
@@ -521,9 +558,9 @@ def risk_environment():
 
 	# Check if the Bitcoin price is above the 200-day moving average
 	if df.Value.iloc[-1] > df.ma.iloc[-1]:
-		st.write("Welcome to the bull market!")
+		st.write("We are in a risk-on environment!")
 	else:
-		st.write("Welcome to the bear market!")
+		st.write("We are in a risk-off environment!")
 def scrapping():
 	import pandas as pd
 	import numpy as np
@@ -581,6 +618,7 @@ def scrapping():
 	dataframe.loc[dataframe['Name'].isin(['Tether USDT','USD Coin USDC','Binance USD BUSD','Dai DAI','Paxos Standard USDP','TrueUSD TUSD','USDD USDD','Neutrino USD USDN','Gemini Dollar GUSD',"cDAI. cdai","cUSDC. cusdc"]), 'liquidity_risk'] = 'stablecoin'
 	st.dataframe(dataframe)
 	#streamlit run full_scrap.py
+
 def altcoinseason():
 	import pandas as pd
 	import streamlit as st
@@ -638,17 +676,23 @@ def altcoinseason():
 			plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90,colors=mycolors)
 			plt.axis('equal')
 			st.pyplot()
-
-			if percent_outperform > 90 and percent_outperform<100:
+   
+			if percent_outperform > 95 and percent_outperform<100:
 				st.warning("The altcoins are so overvalued in the timeframe take profits agressively into stablecoins,BTC and ETH")
-			elif percent_outperform > 80 and percent_outperform<=90:
+			elif percent_outperform > 90 and percent_outperform<=95:
 				st.warning("Take some profits into BTC,ETH and stablecoins")
+			elif percent_outperform > 80 and percent_outperform<=90:
+				st.warning("Research on coins that could have reached a local top (potential short the reap)")
 			elif percent_outperform > 10 and percent_outperform<=20:
+				st.warning("Research on coins that could have reached a local bottom (potential buy the dip coins gradually)")    
+			elif percent_outperform > 5 and percent_outperform<=10:
 				st.warning("Sell some BTC into altcoins")
-			elif percent_outperform > 1 and percent_outperform<=10:
-				st.warning("The altcoins are so undervalued in the timeframe sell stablecoins,BTC and ETH gradually into the altcoins")			
+			elif percent_outperform > 1 and percent_outperform<=5:
+				st.warning("The altcoins are so undervalued in the timeframe sell stablecoins,BTC and ETH gradually into the altcoins")
 			else:
 				st.error("stay in your positions")
+
+			
 def crypto_quantitative_analysis():
     
 	import streamlit as st
@@ -889,7 +933,7 @@ def crypto_quantitative_analysis():
 			
 			
 		else:
-			print("can not access the model.")
+			st.text("can not access the model.")
 		crypto_portfolio1()	
 		
 	with tab7:
@@ -949,8 +993,6 @@ def main():
 		#topcryptos()
 		scrapping()
 	elif choice == "Login":
-		#st.subheader("Login Section")
-
 		username = st.sidebar.text_input("User Name")
 		password = st.sidebar.text_input("Password",type='password')
 		if st.sidebar.checkbox("Login"):
@@ -970,6 +1012,7 @@ def main():
 					#investor_connect()
 					#investor_connect1()
 					investor_connect2()
+					media_socials()
 					
 					comments = st.text_input('Leave a Comment Below: ')
 					st.button('Submit Comment')
@@ -977,13 +1020,13 @@ def main():
 
 				elif task == "Quantitative Analysis":
 		
-		            
+					
 					st.subheader("Quantitative Analysis")
 					crypto_quantitative_analysis()
 					
 					
 				elif task == "Profiles":
-                    
+					
 					if(username=="mokua254"):
 						st.subheader("User Profiles")
 						user_result = view_all_users()
@@ -994,11 +1037,11 @@ def main():
 			else:
 				st.warning("Incorrect Username/Password")
 	elif choice == "Logout":
-            st.subheader("Logout Section")
-            logout_button = st.button("Logout")
-            if logout_button:
-                st.sidebar.empty()
-                st.warning("You have been logged out")
+			st.subheader("Logout Section")
+			logout_button = st.button("Logout")
+			if logout_button:
+				st.sidebar.empty()
+				st.warning("You have been logged out")
 
 	elif choice == "Reset Password":
 		st.subheader("Reset Password")
@@ -1035,15 +1078,15 @@ def main():
 		st.subheader("Top 100 Cryptos")
 		st.text(" \n\r       The Lindy Effect essentially states that the longer a non-perishable item has been around, the longer it's likely to persist into the future.\n\rThis can translate to technological ideas like cryptocurrencies.This being the first macro correction of bitcoins and other altcoins\n\r most altcoins will trend to zero and give room to quality projects to emerge and loss their market share to existing\n\r fundamentally strong projects.Using the top 100 cryptocurrencies presents a conservative way of investing in this risk off environment.")
 		st.subheader("Macro Analysis")
-		st.text(" \n\r       ")
+		st.text(" \n\r       Headline inflation refers to the overall change in the price level of goods and services in an economy, including all items in the \n\r Consumer Price Index (CPI) basket, which is used to measure inflation. This includes food, energy, and other volatile items that can\n\r experience  significant price swings in short periods of time. Core CPI, on the other hand, is a measure of inflation that \n\rexcludes food and energy prices, which are typically more volatile than other prices. \n\rThis is done to provide a more stable measure of underlying inflation trends, as food and energy prices can be influenced by factors such as \n\rweather events or geopolitical events that can cause temporary price spikes.")
 		st.subheader("Sentiment Analysis")
 		st.text(" \n\r       Warren Buffett once said that it is wise for investors to be “fearful when others are greedy, and greedy when others are fearful.\n\rThis statement is somewhat of a contrarian view on capital markets and relates directly to the price of an asset: \n\rwhen others are greedy, prices typically boil over, and one should be cautious lest they overpay for an asset that \n\rsubsequently leads to anemic returns.When others are fearful, it may present a good value investment opportunity.\n\rSince the price is what you pay, and value is what you get, paying too high a price can decimate returns.\n\r According to the indicator the ranges between 0-violet -2-light blue present good buy opportunity from a risk to reward \n\rstandpoint(usually calls micro and macro bottoms).According to the indicator the ranges between 14-orange -16-red present good \n\rselling opportunity from a risk to reward standpoint(usually calls micro and macro tops).\n\r The ranges between 4-blue and 12-yellow present an opportunity to hodl your positions for an optimal exit in the future. ")
 		st.subheader("Risk Mode")
-		st.text(" \n\r       Whenever price action goes above the 200 daily MA we transion to a risk on environment.\n\rTherefore investors should have some skin in the game incase the bottom was in :have exposure to some \n\raltcoins.But whenever the price action is below the 200 daily MA ,investors ought to start derisking\n\r and taking profits aggressively as were are potentially moving into a risk of environment. ")
+		st.text(" \n\r       Whenever price action goes above the 200 daily MA we transion to a risk on environment.\n\rTherefore investors should have some skin in the game incase the bottom was in :have exposure to some \n\raltcoins.But whenever the price action is below the 200 daily MA ,investors ought to start derisking\n\r and taking profits Aggressively as were are potentially moving into a risk of environment. ")
 		st.subheader("portfolio design and risk management")
 		st.text(" \n\r       We help you design an all weather portfolio that can withstand any market conditions . \n\rDepending on your age we help your deploy capital into to the legacy markets and the crypto markets.\n\rDepending on your annual income  we help your deploy capital across the different  crypto narratives.")
 		st.subheader("Altcoin Season Index")
-		st.text(" \n\r       Altcoin season is a crypto phenomenon, where most cryptocurrency prices surge with the exception of Bitcoin(outperform Bitcoin). \n\rDuring an altcoin season you should a significant exposure to alcoins but in a bitcoin season you should have a significant exposure to Bitcoin.\n\rWhenever more than 80% of the altcoins outperform bitcoins it is usually a good time to start hedging your portfolio.\n\rHedging can be done in two ways :conservatively or aggressively.\n\rBy being conservative you can sell  a portion of your altcoins  into stablecoins. By taking the aggressive path you sell a portion of your\n\r altcoins into bitcoin and ethereum(which is a longterm hodl position) or you can open short positions(only for experienced traders). \n\rIf Bitcoin outperforms more than 80% of the altcoins it is usually a good time to start having a significant exposure to some altcoins ,\n\ras this indicates undervaluation of alcoins and vv.")
+		st.text(" \n\r       Altcoin season is a crypto phenomenon, where most cryptocurrency prices surge with the exception of Bitcoin(outperform Bitcoin). \n\rDuring an altcoin season you should a significant exposure to alcoins but in a bitcoin season you should have a significant exposure to Bitcoin.\n\rWhenever more than 80% of the altcoins outperform bitcoins it is usually a good time to start hedging your portfolio.\n\rHedging can be done in two ways :conservatively or Aggressively.\n\rBy being conservative you can sell  a portion of your altcoins  into stablecoins. By taking the Aggressive path you sell a portion of your\n\r altcoins into bitcoin and ethereum(which is a longterm hodl position) or you can open short positions(only for experienced traders). \n\rIf Bitcoin outperforms more than 80% of the altcoins it is usually a good time to start having a significant exposure to some altcoins ,\n\ras this indicates undervaluation of alcoins and vv.")
 		st.subheader("Profit Taking and DCA")
 		st.text(" \n\r       The success of any retail investor or the trader is measured by how much profits they take home.  \n\rTo achieve this we use the  Dollar-cost averaging (DCA)  an investment strategy in which the intention is to minimize the impact of volatility\n\r when investing or purchasing a fixed large block of a financial asset or instrument over a given period in a fixed  interval.\n\r The strategy is deployed whenever the Relative Strength Index(RSI)is between 80 and 95 or whenever the RSI is below the 25 mark.\n\rHistorically whenever the Relative Strength Index(RSI)is between 80 and 95 it is usually regarded a good time take some partial profits  or\n\r historically whenever the RSI is below the 25 mark it is usually a good time to start building positions(longing,buying coins)")
 		st.subheader("Market Report")
@@ -1051,12 +1094,8 @@ def main():
 
 if __name__ == '__main__':
 	main()
-
-
-
-
-
+#streamlit run streamlit_login.py
 #streamlit run open_cipher.py
-#pip uninstall matplotlib
-#pip install C:\Users\MOKUA\Downloads\TA_Lib-0.4.0-cp39-cp39-win_amd64.whl
-#git remote add origin https://github.com/mokuaomae254/OPEN-CIPHER-PROJECT1.
+
+# Megatron1080
+#python.exe -m pip install --upgrade pip --user
