@@ -670,8 +670,8 @@ def crypto_quantitative_analysis():
 
 	with tab2:
 		
-		topcryptos()
-		#scrapping()
+		#topcryptos()
+		scrapping()
 	
 	
 
@@ -946,8 +946,8 @@ def main():
 	if choice == "Home":
 		#st.subheader("Home")
 		#st.write("Welcome to our platform!")
-		topcryptos()
-		#scrapping()
+		#topcryptos()
+		scrapping()
 	elif choice == "Login":
 		#st.subheader("Login Section")
 
