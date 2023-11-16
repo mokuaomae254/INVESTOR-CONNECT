@@ -401,7 +401,7 @@ def dca():
 		st.title("Dollar Cost Averaging Strategy for Bitcoin")
 
 		# Load data for bitcoin prices
-		df = pd.read_csv("BCHAIN-MKPRU.csv")
+		df = pd.read_csv("code_pain.csv")
 		df.Date = pd.to_datetime(df.Date)
 		df = df[df.Value > 0] # remove rows with closing price of 0 or less
 		df.sort_values(by="Date", inplace=True)
@@ -446,7 +446,7 @@ def dca():
 
 	#st.set_style("dark")
 
-	df = pd.read_csv("BCHAIN-MKPRU.csv")[["Date","Value"]]
+	df = pd.read_csv("code_pain.csv")[["Date","Value"]]
 	df.Date = pd.to_datetime(df.Date)
 	df = df[df.Value > 0]
 	df.sort_values(by="Date", inplace=True)
@@ -541,7 +541,7 @@ def risk_environment():
 	import matplotlib.pyplot as plt
 	import ta
 
-	df = pd.read_csv("BCHAIN-MKPRU.csv")[["Date","Value"]]
+	df = pd.read_csv("code_pain.csv")[["Date","Value"]]
 	df.Date = pd.to_datetime(df.Date)
 	df = df[df.Value > 0]
 	df.sort_values(by="Date", inplace=True)
@@ -750,7 +750,7 @@ def crypto_quantitative_analysis():
 		
 			
 			#time.sleep(10)
-		dataframe = pd.read_csv("BCHAIN-MKPRU.csv")
+		dataframe = pd.read_csv("code_pain.csv")
 		dataframe = dataframe.iloc[::-1]
 		dataframe['200wma'] = dataframe['Value'].rolling(window = 1400).mean()
 
