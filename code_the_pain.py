@@ -54,7 +54,4 @@ def sentiment_analysis():
 # Call the function
 sentiment_analysis()
 
-
-
-
 #streamlit run code_the_pain.py
