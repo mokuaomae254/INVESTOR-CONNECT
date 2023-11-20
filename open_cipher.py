@@ -785,7 +785,7 @@ def crypto_quantitative_analysis():
 		cbar = plt.colorbar()
 		cbar.set_label("% monthly increase in 200wma")
 		cbar.ax.yaxis.set_label_position("left")
-		st.set_option('deprecation.showPyplotGlobalUse', False)dep
+		st.set_option('deprecation.showPyplotGlobalUse', False)
 
 		# Display the plot in Streamlit
 		st.pyplot()
