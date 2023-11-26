@@ -146,7 +146,7 @@ def macro_analysis():
 	st.image(image3, caption='EMOTIONAL ROLLERCOASTER.2')
 
 	#streamlit run sentiment.py
-def media_socials():
+def social_medialinks():
 		import streamlit as st
 
 		# Set page configuration
@@ -176,7 +176,7 @@ def media_socials():
 			favicon = FAVICON.get(platform)
 			st.image(favicon, width=30)
 			st.write(f"[{platform}]({link})")
-			
+
 def investor_connect2():
 		import streamlit as st
 		import matplotlib.pyplot as plt
@@ -1055,10 +1055,9 @@ def main():
 				task = st.selectbox("Task",["Qualitative Analysis","Quantitative Analysis","Profiles"])
 				if task == "Qualitative Analysis":
 					st.subheader("Add Your Post")
-					#investor_connect()
-					#investor_connect1()
+					
 					investor_connect2()
-					media_socials()
+					social_medialinks()
 					
 					comments = st.text_input('Leave a Comment Below: ')
 					st.button('Submit Comment')
