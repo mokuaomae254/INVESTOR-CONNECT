@@ -1057,10 +1057,11 @@ def main():
 					st.subheader("Add Your Post")
 					
 					investor_connect2()
-					social_medialinks()
+					#social_medialinks()
 					
 					comments = st.text_input('Leave a Comment Below: ')
 					st.button('Submit Comment')
+					social_medialinks()
 					
 
 				elif task == "Quantitative Analysis":
