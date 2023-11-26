@@ -176,46 +176,7 @@ def media_socials():
 			favicon = FAVICON.get(platform)
 			st.image(favicon, width=30)
 			st.write(f"[{platform}]({link})")
-def media_socials1():
-	import streamlit as st
-
-	# Set page configuration
-	#st.set_page_config(page_title="Social Media Links", page_icon=":earth_americas:")
-	st.write("Feel free reachout with the links below")
-	SOCIAL_MEDIA = {
-		"YouTube": "https://youtube.com",
-		"LinkedIn": "https://linkedin.com",
-		"GitHub": "https://github.com",
-		"Twitter": "https://twitter.com",
-	}
-
-	# Add favicons to respective platform
-	FAVICON = {
-		"YouTube": "https://www.youtube.com/s/desktop/0356b1aa/img/favicon_32.png",
-		"LinkedIn": "https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97",
-		"GitHub": "https://github.githubassets.com/favicons/favicon-dark.svg",
-		"Twitter": "https://abs.twimg.com/favicons/twitter.ico",
-	}
-
-	# Display icons and links horizontally
-	col1, col2, col3, col4 = st.columns(4)
-	for platform, link in SOCIAL_MEDIA.items():
-		favicon = FAVICON.get(platform)
-		if favicon:
-			col = None
-			if platform == "YouTube":
-				col = col1
-			elif platform == "LinkedIn":
-				col = col2
-			elif platform == "GitHub":
-				col = col3
-			elif platform == "Twitter":
-				col = col4
-			with col:
-				st.image(favicon, width=30)
-				st.write(f"[{platform}]({link})")
-
-	#streamlit run media_social.py
+			
 def investor_connect2():
 		import streamlit as st
 		import matplotlib.pyplot as plt
