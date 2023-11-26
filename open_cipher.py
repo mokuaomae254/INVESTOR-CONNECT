@@ -64,7 +64,7 @@ def market_report():
 			b64 = base64.b64encode(csv.encode()).decode()
 			href = f'<a href="data:file/csv;base64,{b64}" download="mydata.csv">Download CSV File</a>'
 			st.markdown(href, unsafe_allow_html=True)
-		#csv_downloader()
+		##csv_downloader()
 		st.subheader("Today's Biggest Losers ")
 		for i in range(10):
 			
