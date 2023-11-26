@@ -147,6 +147,36 @@ def macro_analysis():
 
 	#streamlit run sentiment.py
 def media_socials():
+		import streamlit as st
+
+		# Set page configuration
+		# st.set_page_config(page_title="Social Media Links", page_icon=":earth_americas:")
+		st.write("Feel free to reach out with the links below")
+
+		SOCIAL_MEDIA = {
+			"YouTube": "https://www.youtube.com/channel/UCYpLThwlwwUnGmK5q9YCMhA",
+			"LinkedIn": "https://www.linkedin.com/in/obare-mokua-robert-omae-b58b4a293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			"GitHub": "https://github.com/mokuaomae254",
+			"Twitter": "https://x.com/cipher_ope28850?t=yFhd-KtESrvS8GJTtOSxig&s=08",
+		}
+
+		FAVICON = {
+			"YouTube": "https://www.youtube.com/s/desktop/0356b1aa/img/favicon_32.png",
+			"LinkedIn": "https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97",
+			"GitHub": "https://github.githubassets.com/favicons/favicon-dark.svg",
+			"Twitter": "https://abs.twimg.com/favicons/twitter.ico",
+		}
+		# Add the phone number with an icon below the social media links
+		PHONE_ICON = "📞"
+		PHONE_NUMBER = "0717150549"
+		st.write(f"{PHONE_ICON} [Contact](tel:{PHONE_NUMBER})")
+
+		# Add social media icons and links
+		for platform, link in SOCIAL_MEDIA.items():
+			favicon = FAVICON.get(platform)
+			st.image(favicon, width=30)
+			st.write(f"[{platform}]({link})")
+def media_socials1():
 	import streamlit as st
 
 	# Set page configuration
