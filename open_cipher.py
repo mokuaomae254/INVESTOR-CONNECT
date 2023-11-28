@@ -221,6 +221,59 @@ def investor_connect1():
 #streamlit run investor_connect.py
 	
 def crypto_portfolio():
+		import streamlit as st
+		import matplotlib.pyplot as plt
+
+		# Set the option to avoid warnings about global pyplot use
+		st.set_option('deprecation.showPyplotGlobalUse', False)
+
+		age = st.number_input("enter your age:")
+
+		if age >= 18 and age <= 200:
+			st.subheader("Crypto portfolio")
+
+			income = st.number_input("Enter your annual income:")
+			investment = income * 0.1
+			st.text("Invest 10% of your income, or $" + str(investment) + ", in crypto.")
+
+			labels = 'LAYER 1', 'LAYER 0', 'LAYER 2', 'LAYER 3', 'INFRA COINS', 'AI COINS'
+			mycolors = ["yellow", "hotpink", "purple", "green", "pink", "maroon"]
+			explode = (0, 0, 0, 0, 0, 0)
+
+			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
+			sizes = []
+
+			if income > 2000000:
+				st.text("consult with Hedge Funds, private Equity Firms...")
+			elif income > 1000000:
+				sizes = [50, 10, 10, 10, 10, 10]
+			elif income > 100000 and income <= 1000000:
+				sizes = [40, 10, 20, 10, 10, 10]
+			elif income > 10000 and income <= 100000:
+				sizes = [30, 10, 20, 20, 10, 10]
+			elif income > 1000 and income <= 10000:
+				sizes = [20, 10, 20, 20, 20, 10]
+			elif income > 100 and income <= 1000:
+				sizes = [10, 20, 20, 20, 10, 20]
+			elif income > 0 and income <= 100:
+				sizes = [30, 10, 20, 20, 10, 10]
+
+			ax1.pie(
+				sizes,
+				explode=explode,
+				labels=labels,
+				autopct=lambda p: '{:.1f}%'.format(p),
+				textprops={'fontsize': 8},  # Adjust the font size as needed
+				shadow=True,
+				startangle=90,
+				colors=mycolors
+			)
+			ax1.axis('equal')
+			st.pyplot(fig1)
+		else:
+			st.text("The minimum amount you can buy in an exchange is 10 USD")
+
+		""""	
         import streamlit as st
         import matplotlib.pyplot as plt
         age= st.number_input("enter your age:") 
@@ -299,7 +352,7 @@ def crypto_portfolio():
                 st.text("consult with Hedge Funds,private Equity Firms or Venture Capitals as you are regarded as an accredited investor An accredited investor is an individual or entity that meets certain financial and income criteria as established by the Securities and Exchange Commission (SEC). The criteria are intended to identify individuals and entities that have the financial sophistication and ability to bear the economic risks of investing in securities that are not registered with the SEC. Examples of accredited investors include individuals with a net worth of over $1 million (excluding the value of their primary residence), or an annual income of over $200,000 for the past two years (or $300,000 when combined with a spouse). Institutions such as banks, insurance companies, and investment companies also qualify as accredited investors.")
             else:
                 st.text("The minimum amount you can buy in an exchange is 10 USD")	
-            #"""streamlit run crypto_portfolio.py
+            streamlit run crypto_portfolio.py"""
 def crypto_portfolio1():
 	import streamlit as st
 	import matplotlib.pyplot as plt
@@ -793,6 +846,51 @@ def crypto_quantitative_analysis():
 		risk_environment()
 
 	with tab6:
+		import streamlit as st
+		import matplotlib.pyplot as plt
+
+		# Set the option to avoid warnings about global pyplot use
+		st.set_option('deprecation.showPyplotGlobalUse', False)
+
+		age = st.number_input("Enter your age:")
+
+		if 18 <= age <= 200:
+			st.text("PORTFOLIO DESIGN AND RISK MANAGEMENT")
+
+			labels = ['CRYPTO', 'SP500', 'DJIA', 'NASDAQ', 'Fine Art']
+			mycolors = ["yellow", "hotpink", "b", "#4CAF50", "maroon"]
+			explode = (0, 0.1, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'SP500')
+
+			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
+			sizes = []
+			
+			if 18 <= age <= 30:
+				sizes = [40, 15, 15, 15, 15]
+			elif 30 < age <= 40:
+				sizes = [35, 16.25, 16.25, 16.25, 16.25]
+			elif 40 < age <= 50:
+				sizes = [30, 17.5, 17.5, 17.5, 17.5]
+			elif 50 < age <= 60:
+				sizes = [25, 18.75, 18.75, 18.75, 18.75]
+			elif 60 < age <= 70:
+				sizes = [20, 20, 20, 20, 20]
+			elif 70 < age <= 200:
+				sizes = [10, 22.5, 22.5, 22.5, 22.5]
+			else:
+				st.text("Cannot access the model.")
+				st.stop()
+
+			
+			ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+					shadow=True, startangle=90, colors=mycolors, textprops={'fontsize': 8})
+			ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+			st.pyplot(fig1)
+
+		else:
+			st.text("Cannot access the model.")
+		crypto_portfolio()
+		"""
 		#st.header("portfolio design and risk management")
 		st.subheader("Crypto and the legacy market portfolio")
 		age= st.number_input("enter your age:")    
@@ -941,7 +1039,7 @@ def crypto_quantitative_analysis():
 			
 		else:
 			st.text("can not access the model.")
-		crypto_portfolio1()	
+		crypto_portfolio1()"""	
 		
 	with tab7:
 		altcoinseason()
