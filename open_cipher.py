@@ -224,54 +224,44 @@ def crypto_portfolio():
 		import streamlit as st
 		import matplotlib.pyplot as plt
 
-		# Set the option to avoid warnings about global pyplot use
-		st.set_option('deprecation.showPyplotGlobalUse', False)
+		#st.header("Portfolio Design and Risk Management")
+		st.subheader("Crypto portfolio")
 
-		age = st.number_input("enter your age:")
+		income = st.number_input("Enter your annual income:")
+		investment = income * 0.1
+		st.text("Invest 10% of your income, or $" + str(investment) + ", in crypto.")
 
-		if age >= 18 and age <= 200:
-			st.subheader("Crypto portfolio")
-
-			income = st.number_input("Enter your annual income:")
-			investment = income * 0.1
-			st.text("Invest 10% of your income, or $" + str(investment) + ", in crypto.")
-
-			labels = 'LAYER 1', 'LAYER 0', 'LAYER 2', 'LAYER 3', 'INFRA COINS', 'AI COINS'
-			mycolors = ["yellow", "hotpink", "purple", "green", "pink", "maroon"]
+		if income > 1000:
+			labels = 'LAYER 1', 'LAYER 0', 'LAYER 2', 'LAYER 3','INFRA COINS','AI COINS'
+			mycolors = ["yellow", "hotpink", "purple", "green","pink","maroon"]
 			explode = (0, 0, 0, 0, 0, 0)
 
-			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
 			sizes = []
-
-			if income > 2000000:
-				st.text("consult with Hedge Funds, private Equity Firms...")
-			elif income > 1000000:
-				sizes = [50, 10, 10, 10, 10, 10]
-			elif income > 100000 and income <= 1000000:
-				sizes = [40, 10, 20, 10, 10, 10]
-			elif income > 10000 and income <= 100000:
+			if income <= 100:
 				sizes = [30, 10, 20, 20, 10, 10]
-			elif income > 1000 and income <= 10000:
-				sizes = [20, 10, 20, 20, 20, 10]
-			elif income > 100 and income <= 1000:
+			elif income <= 1000:
 				sizes = [10, 20, 20, 20, 10, 20]
-			elif income > 0 and income <= 100:
+			elif income <= 10000:
+				sizes = [20, 10, 20, 20, 20, 10]
+			elif income <= 100000:
 				sizes = [30, 10, 20, 20, 10, 10]
+			elif income <= 1000000:
+				sizes = [40, 10, 20, 10, 10, 10]
+			elif income <= 2000000:
+				sizes = [50, 10, 10, 10, 10, 10]
+			else:
+				st.text("consult with Hedge Funds, private Equity Firms or Venture Capitals as you are regarded as an accredited investor.")
+				st.stop()
 
-			ax1.pie(
-				sizes,
-				explode=explode,
-				labels=labels,
-				autopct=lambda p: '{:.1f}%'.format(p),
-				textprops={'fontsize': 8},  # Adjust the font size as needed
-				shadow=True,
-				startangle=90,
-				colors=mycolors
-			)
+			fig1, ax1 = plt.subplots()
+			ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90, colors=mycolors)
 			ax1.axis('equal')
 			st.pyplot(fig1)
+
 		else:
 			st.text("The minimum amount you can buy in an exchange is 10 USD")
+
+		
 
 		
 def dca():
