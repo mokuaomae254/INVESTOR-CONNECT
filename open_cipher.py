@@ -235,7 +235,7 @@ def crypto_portfolio():
 			labels = 'LAYER 1', 'LAYER 0', 'LAYER 2', 'LAYER 3','INFRA COINS','AI COINS'
 			mycolors = ["yellow", "hotpink", "purple", "green","pink","maroon"]
 			explode = (0, 0, 0, 0, 0, 0)
-			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
+			fig1, ax1 = plt.subplots(figsize=(1, 1))  # Adjust the size as needed
     
 			sizes = []
 			if income <= 100:
@@ -694,7 +694,7 @@ def crypto_quantitative_analysis():
 			mycolors = ["yellow", "hotpink", "b", "#4CAF50", "maroon"]
 			explode = (0, 0.1, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'SP500')
 
-			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
+			fig1, ax1 = plt.subplots(figsize=(1, 1))  # Adjust the size as needed
 			sizes = []
 			
 			if 18 <= age <= 30:
