@@ -235,7 +235,8 @@ def crypto_portfolio():
 			labels = 'LAYER 1', 'LAYER 0', 'LAYER 2', 'LAYER 3','INFRA COINS','AI COINS'
 			mycolors = ["yellow", "hotpink", "purple", "green","pink","maroon"]
 			explode = (0, 0, 0, 0, 0, 0)
-
+			fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjust the size as needed
+    
 			sizes = []
 			if income <= 100:
 				sizes = [30, 10, 20, 20, 10, 10]
