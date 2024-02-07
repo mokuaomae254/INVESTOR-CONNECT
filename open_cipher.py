@@ -893,7 +893,7 @@ def main():
 			'BASE': ['USDBC'],
 			'POLYGON': ['USDC', 'DAI', 'USDT'],
 			'OPTIMISM': ['USDC'],
-			'AVALANCHE': ['USDC'],
+			'AVALANCHE': ['EUROC'],
 			'ETHEREUM': ['USDC']  # Add options for ETHEREUM
 		}
 
