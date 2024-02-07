@@ -776,7 +776,7 @@ def main():
 
 	#st.title("Simple Login App")
 	import streamlit as st
-	menu = ["Home","Login","SignUp","Logout","Reset Password","Help"]
+	menu = ["Home","Login","SignUp","Logout","Reset Password","Help","Donation"]
 	choice = st.sidebar.selectbox("Menu",menu)
 
 	if choice == "Home":
@@ -883,6 +883,66 @@ def main():
 		st.text(" \n\r       The success of any retail investor or the trader is measured by how much profits they take home.  \n\rTo achieve this we use the  Dollar-cost averaging (DCA)  an investment strategy in which the intention is to minimize the impact of volatility\n\r when investing or purchasing a fixed large block of a financial asset or instrument over a given period in a fixed  interval.\n\r The strategy is deployed whenever the Relative Strength Index(RSI)is between 80 and 95 or whenever the RSI is below the 25 mark.\n\rHistorically whenever the Relative Strength Index(RSI)is between 80 and 95 it is usually regarded a good time take some partial profits  or\n\r historically whenever the RSI is below the 25 mark it is usually a good time to start building positions(longing,buying coins)")
 		st.subheader("Market Report")
 		st.text(" \n\r       It shows the top gainers and lossers on the daily,weekly and monthly timeframes. \n\rIf you are using a momentum investing and trend following strategy this could come in handy. \n\rIn addition,if on the daily,weekly or monthly timeframes the top gainers or biggest lossers are stablecoins  this could help predict\n\r the investor behaviour.If stablecoins comprise of the biggest gainers in any timeframe this means investors are moving from\n\r the coins(btc,eth and altcoins)  into the sideline which consequently,means loss of confidence by investors within that timeframe .\n\r If stablecoins comprise of the biggest lossers in any timeframe this means investors are moving from  the sideline into the \n\rcoins(btc,eth and altcoins) which consequently,means gaining of confidence by investors within that timeframe .")
+	elif choice == "Donation":
+    	
+		import streamlit as st
+
+		network_payment_options = {
+			'BNB CHAIN': ['BUSD'],
+			'SOLANA': ['USDC', 'USDT'],
+			'BASE': ['USDBC'],
+			'POLYGON': ['USDC', 'DAI', 'USDT'],
+			'OPTIMISM': ['USDC'],
+			'AVALANCHE': ['USDC'],
+			'ETHEREUM': ['USDC']  # Add options for ETHEREUM
+		}
+
+		st.write('Donate to support our development')
+
+		network_options = list(network_payment_options.keys())
+
+		selected_network = st.selectbox('Choose a network:', network_options)
+
+		st.write(f'You selected network: {selected_network}')
+
+		payment_options = network_payment_options.get(selected_network, [])
+
+		if payment_options:
+			selected_payment_option = st.selectbox('Choose a payment option:', payment_options)
+			st.write(f'You selected payment option: {selected_payment_option}')
+			
+			# Set receiver address based on the selected network
+			if selected_network == 'SOLANA':
+				receiver_address = "9N2RjpW6kUdQL9ooU8dobhBeuGjLVVTfjUVmGp1uoghm"
+			else:
+				receiver_address = "0x1560fE2D29b86a0B0040e96545bDe4531E3feBD3"
+			
+			# Generate HTML code for the selected payment option
+			html_code = f"""
+			<script src="https://button.getpip.com/cdn/pipbutton.js"></script>
+			<div class="pip-button"
+				data-amount="10"
+				data-chainNetwork="{selected_network}"
+				data-currency="{selected_payment_option}"
+				data-label="PAY"
+				data-useLabel="true"
+				data-receiver="{receiver_address}"
+				data-buttonColor="#1149FF"
+				data-buttonTextColor="#FFFFFF"
+				data-memo="{receiver_address}">
+			</div>
+			"""
+
+			st.components.v1.html(html_code, height=600, width=400)
+			
+		else:
+			st.write('No payment options available for the selected network.')
+
+		st.write('Thank you for your donation')
+
+
+		#streamlit run crypto_donations.py
+	
 
 if __name__ == '__main__':
 	main()
