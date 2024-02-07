@@ -924,7 +924,7 @@ def main():
 				data-amount="10"
 				data-chainNetwork="{selected_network}"
 				data-currency="{selected_payment_option}"
-				data-label="PAY"
+				data-label="DONATE"
 				data-useLabel="true"
 				data-receiver="{receiver_address}"
 				data-buttonColor="#1149FF"
