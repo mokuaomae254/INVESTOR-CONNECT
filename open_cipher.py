@@ -625,7 +625,7 @@ def crypto_quantitative_analysis():
 		import matplotlib.pyplot as plt
 		import streamlit as st
 
-		st.set_option('deprecation.showPyplotGlobalUse', False)
+		#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 		def sentiment_analysis():
 			st.header("Sentiment Analysis")
