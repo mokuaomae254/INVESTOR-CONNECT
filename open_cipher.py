@@ -667,7 +667,7 @@ def crypto_quantitative_analysis():
 			cbar.ax.yaxis.set_label_position("left")
 
 			# Display the plot in Streamlit
-			st.pyplot(fig)
+			st.pyplot(fig1)
 
 			# Save the updated DataFrame to a new CSV file
 			dataframe.to_csv("code_pain.csv", index=False)
