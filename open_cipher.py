@@ -683,7 +683,7 @@ def crypto_quantitative_analysis():
 		import matplotlib.pyplot as plt
 
 		# Set the option to avoid warnings about global pyplot use
-		st.set_option('deprecation.showPyplotGlobalUse', False)
+		#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 		age = st.number_input("Enter your age:")
 
