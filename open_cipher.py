@@ -223,6 +223,8 @@ def investor_connect1():
 def crypto_portfolio():
 		import streamlit as st
 		import matplotlib.pyplot as plt
+		import warnings
+        
 
 		#st.header("Portfolio Design and Risk Management")
 		st.subheader("Crypto portfolio")
@@ -257,6 +259,8 @@ def crypto_portfolio():
 			fig1, ax1 = plt.subplots()
 			ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90, colors=mycolors)
 			ax1.axis('equal')
+			warnings.filterwarnings("ignore")
+            # Your existing plotting code here
 			st.pyplot(fig1)
 
 		else:
@@ -271,6 +275,8 @@ def dca():
 	import pandas as pd
 	import matplotlib.pyplot as plt
 	import ta
+	import warnings
+
 	def dca_strat():
 		import streamlit as st
 		import pandas as pd
@@ -358,6 +364,8 @@ def dca():
 
 	ax2.plot(df.Date, df.rsi,linewidth=0.5)
 	#st.set_option('deprecation.showPyplotGlobalUse', False)
+	warnings.filterwarnings("ignore")
+    # Your existing plotting code here
 	st.pyplot()
 	#streamlit run momentum_strat.py
 def topcryptos2():
@@ -417,6 +425,8 @@ def risk_environment():
 	import pandas as pd
 	import matplotlib.pyplot as plt
 	import ta
+	import warnings
+
 
 	df = pd.read_csv("code_pain.csv")[["Date","Value"]]
 	df.Date = pd.to_datetime(df.Date)
@@ -431,6 +441,8 @@ def risk_environment():
 	ax.plot(df.Date, df.ma, color='red', linewidth=1)
 
 	#st.set_option('deprecation.showPyplotGlobalUse', False)
+	warnings.filterwarnings("ignore")
+    # Your existing plotting code here
 	st.pyplot()
 
 	# Check if the Bitcoin price is above the 200-day moving average
@@ -500,6 +512,8 @@ def altcoinseason():
 	import pandas as pd
 	import streamlit as st
 	import matplotlib.pyplot as plt
+	import warnings
+
 
 	st.title("Altcoin Season Indicator")
 
@@ -550,6 +564,8 @@ def altcoinseason():
 			mycolors = ["yellow","b"]
 			sizes = [percent_outperform, 100 - percent_outperform]
 			#st.set_option('deprecation.showPyplotGlobalUse', False)
+			warnings.filterwarnings("ignore")
+			# Your existing plotting code here
 			plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90,colors=mycolors)
 			plt.axis('equal')
 			st.pyplot()
@@ -624,6 +640,7 @@ def crypto_quantitative_analysis():
 		import numpy as np
 		import matplotlib.pyplot as plt
 		import streamlit as st
+		import warnings
 
 		#st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -667,6 +684,9 @@ def crypto_quantitative_analysis():
 			cbar.ax.yaxis.set_label_position("left")
 
 			# Display the plot in Streamlit
+			warnings.filterwarnings("ignore")
+			# Your existing plotting code here
+
 			st.pyplot()
 
 			# Save the updated DataFrame to a new CSV file
@@ -681,6 +701,8 @@ def crypto_quantitative_analysis():
 	with tab6:
 		import streamlit as st
 		import matplotlib.pyplot as plt
+		import warnings
+
 
 		# Set the option to avoid warnings about global pyplot use
 		#st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -717,6 +739,8 @@ def crypto_quantitative_analysis():
 			ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
 					shadow=True, startangle=90, colors=mycolors, textprops={'fontsize': 8})
 			ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+			warnings.filterwarnings("ignore")
+			# Your existing plotting code here
 
 			st.pyplot(fig1)
 
