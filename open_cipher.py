@@ -357,7 +357,7 @@ def dca():
 
 
 	ax2.plot(df.Date, df.rsi,linewidth=0.5)
-	st.set_option('deprecation.showPyplotGlobalUse', False)
+	#st.set_option('deprecation.showPyplotGlobalUse', False)
 	st.pyplot()
 	#streamlit run momentum_strat.py
 def topcryptos2():
@@ -549,7 +549,7 @@ def altcoinseason():
 			labels = ["Altcoin Season", "Bitcoin BTC Season"]
 			mycolors = ["yellow","b"]
 			sizes = [percent_outperform, 100 - percent_outperform]
-			st.set_option('deprecation.showPyplotGlobalUse', False)
+			#st.set_option('deprecation.showPyplotGlobalUse', False)
 			plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90,colors=mycolors)
 			plt.axis('equal')
 			st.pyplot()
