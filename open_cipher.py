@@ -430,7 +430,7 @@ def risk_environment():
 	ax.semilogy(df.Date, df.Value, linewidth=0.5)
 	ax.plot(df.Date, df.ma, color='red', linewidth=1)
 
-	st.set_option('deprecation.showPyplotGlobalUse', False)
+	#st.set_option('deprecation.showPyplotGlobalUse', False)
 	st.pyplot()
 
 	# Check if the Bitcoin price is above the 200-day moving average
