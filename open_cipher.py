@@ -280,6 +280,7 @@ def dca():
 	def dca_strat():
 		import streamlit as st
 		import pandas as pd
+		import warnings
 
 		st.title("Dollar Cost Averaging Strategy for Bitcoin")
 
@@ -364,7 +365,8 @@ def dca():
 
 	ax2.plot(df.Date, df.rsi,linewidth=0.5)
 	#st.set_option('deprecation.showPyplotGlobalUse', False)
-	warnings.filterwarnings("ignore")
+	#warnings.filterwarnings("ignore")
+	warnings.filterwarnings("ignore", category=UserWarning, module="streamlit")
     # Your existing plotting code here
 	st.pyplot()
 	#streamlit run momentum_strat.py
@@ -441,7 +443,8 @@ def risk_environment():
 	ax.plot(df.Date, df.ma, color='red', linewidth=1)
 
 	#st.set_option('deprecation.showPyplotGlobalUse', False)
-	warnings.filterwarnings("ignore")
+	#warnings.filterwarnings("ignore")
+	warnings.filterwarnings("ignore", category=UserWarning, module="streamlit")
     # Your existing plotting code here
 	st.pyplot()
 
@@ -564,7 +567,8 @@ def altcoinseason():
 			mycolors = ["yellow","b"]
 			sizes = [percent_outperform, 100 - percent_outperform]
 			#st.set_option('deprecation.showPyplotGlobalUse', False)
-			warnings.filterwarnings("ignore")
+			#warnings.filterwarnings("ignore")
+			warnings.filterwarnings("ignore", category=UserWarning, module="streamlit")
 			# Your existing plotting code here
 			plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90,colors=mycolors)
 			plt.axis('equal')
@@ -684,7 +688,8 @@ def crypto_quantitative_analysis():
 			cbar.ax.yaxis.set_label_position("left")
 
 			# Display the plot in Streamlit
-			warnings.filterwarnings("ignore")
+			#warnings.filterwarnings("ignore")
+			warnings.filterwarnings("ignore", category=UserWarning, module="streamlit")
 			# Your existing plotting code here
 
 			st.pyplot()
