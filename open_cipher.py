@@ -687,7 +687,7 @@ def crypto_quantitative_analysis():
 			warnings.filterwarnings("ignore")
 			# Your existing plotting code here
 
-			st.pyplot(fig)
+			st.pyplot()
 
 			# Save the updated DataFrame to a new CSV file
 			dataframe.to_csv("code_pain.csv", index=False)
