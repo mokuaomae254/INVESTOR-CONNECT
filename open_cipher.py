@@ -443,7 +443,7 @@ def risk_environment():
 	#st.set_option('deprecation.showPyplotGlobalUse', False)
 	warnings.filterwarnings("ignore")
     # Your existing plotting code here
-	st.pyplot(fig)
+	st.pyplot()
 
 	# Check if the Bitcoin price is above the 200-day moving average
 	if df.Value.iloc[-1] > df.ma.iloc[-1]:
@@ -661,9 +661,6 @@ def crypto_quantitative_analysis():
 			# Extract dates and convert 'Date' to datetime format
 			dataframe['Date'] = pd.to_datetime(dataframe['Date'], format='%d/%m/%Y')
 			dates = dataframe['Date']
-			# Create a figure and axis
-			fig, ax = plt.subplots()
-			plt.style.use("dark_background")
 
 			# Sort DataFrame by 'Date'
 			dataframe = dataframe.sort_values(by='Date')
