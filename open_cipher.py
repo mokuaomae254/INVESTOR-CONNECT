@@ -661,7 +661,10 @@ def crypto_quantitative_analysis():
 			# Extract dates and convert 'Date' to datetime format
 			dataframe['Date'] = pd.to_datetime(dataframe['Date'], format='%d/%m/%Y')
 			dates = dataframe['Date']
-
+			# Create a figure and axis
+			fig, ax = plt.subplots()
+			plt.style.use("dark_background")
+			
 			# Sort DataFrame by 'Date'
 			dataframe = dataframe.sort_values(by='Date')
 
@@ -687,7 +690,7 @@ def crypto_quantitative_analysis():
 			warnings.filterwarnings("ignore")
 			# Your existing plotting code here
 
-			st.pyplot()
+			st.pyplot(fig)
 
 			# Save the updated DataFrame to a new CSV file
 			dataframe.to_csv("code_pain.csv", index=False)
